@@ -1,0 +1,8 @@
+insert into users(id, username, password, defaultpath, role) values('1', 'clean1','123456', '/clean/index','ROLE_CLEAN');
+insert into users(id, username, password, defaultpath, role) values('2', 'check1','123456', '/check/index','ROLE_CHECK');
+insert into users(id, username, password, defaultpath, role) values('3', 'admin1','123456', '/admin/index','ROLE_ADMIN');
+
+
+insert into indexpage(id, name, target, url, userrole) values('1', '用户管理','','/admin/users','ROLE_ADMIN');
+insert into indexpage(id, name, target, url, userrole) values('2', '标签管理','','/admin/users','ROLE_ADMIN');
+insert into indexpage(id, name, target, url, userrole) values('3', '人工录入','','/clean/push','ROLE_CLEAN');
