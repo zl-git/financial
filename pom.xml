@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.trs.smas</groupId>
-	<artifactId>DataClean</artifactId>
+	<artifactId>financial</artifactId>
 	<version>0.0.1</version>
 	<packaging>war</packaging>
 
-	<name>DataClean</name>
+	<name>financial</name>
 	
 	<!-- 定义一些常量在文件中直接引用 -->
 	<properties>
