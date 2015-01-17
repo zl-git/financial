@@ -50,8 +50,7 @@
 
 	<http auto-config="true">
 		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
-		<intercept-url pattern="/check/**" access="ROLE_CHECK" />
-		<intercept-url pattern="/clean/**" access="ROLE_CLEAN" />
+		<intercept-url pattern="/analytics/**" access="ROLE_OPERATE" />
 		<form-login login-page="/login" default-target-url="/"
 			authentication-failure-url="/login?error=true" />
 		<logout invalidate-session="true" logout-success-url="/"

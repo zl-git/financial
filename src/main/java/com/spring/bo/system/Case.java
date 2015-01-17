@@ -270,8 +270,4 @@ public class Case {
 	public void setEvent(String event) {
 		this.event = event;
 	}
-	
-	
-	
-	
 }

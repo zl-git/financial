@@ -5,14 +5,10 @@
 			http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 			http://www.springframework.org/schema/util
 			http://www.springframework.org/schema/util/spring-util-3.1.xsd">
-	<bean id="navigationInitFilter" class="com.spring.model.filter.NavigationInitFilter">
-		<property name="homeService" ref="homeService" />
-		<property name="platformService" ref="platformService" />
-	</bean>
 	<bean id="homeService" class="com.spring.model.home.impl.HomeServiceImpl">
 		<property name="usersDao" ref="usersDao" />
 	</bean>
-	<bean id="platformService" class="com.spring.model.system.impl.PlatformServiceImpl">
-		<property name="indexPageDao" ref="indexPageDao" />
+	<bean id="usersService" class="com.spring.model.users.impl.UsersServiceImpl" init-method="initialize">
+		<property name="usersDao" ref="usersDao" />
 	</bean>
 </beans>	

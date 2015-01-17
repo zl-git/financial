@@ -9,18 +9,26 @@ import java.util.Set;
  * 
  */
 public class Industry {
-	private int industryId;
+	//private int industryId;
+	private int id;
 	private String industryName;
 	private Set<Industry> industries;// 小类
 	private Industry parentIndustry;// 大类
 
 
-	public int getIndustryId() {
+	/*public int getIndustryId() {
 		return industryId;
 	}
 
 	public void setIndustryId(int industryId) {
 		this.industryId = industryId;
+	}*/
+	public int getId() {
+		return this.id;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getIndustryName() {

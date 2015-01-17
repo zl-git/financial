@@ -52,9 +52,5 @@
 		<constructor-arg value="com.spring.bo.system.Users" />
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	<bean id="indexPageDao" class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
-		<constructor-arg value="com.spring.bo.system.IndexPage" />
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
 	<tx:annotation-driven />
 </beans>

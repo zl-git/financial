@@ -27,12 +27,6 @@ public class HomeServiceImpl implements IHomeService {
 	}
 
 	@Override
-	public String getDefaultPath(String userName) {
-		Users user = usersDao.findFirst("username", userName);
-		return user.getDefaultPath();
-	}
-
-	@Override
 	public String getUserRole(String userName) {
 		Users user = usersDao.findFirst("username", userName);
 		return user.getRole();
