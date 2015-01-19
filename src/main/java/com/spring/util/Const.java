@@ -9,4 +9,10 @@ public class Const {
 	public static final String ADMIN_PASSWORD = "123456";
 	
 	public static final String ROLE_ADMIN = "ROLE_ADMIN";
+	
+	public static final String USER_MANAGERMENT_NAME = "用户管理";
+	public static final String USER_MANAGERMENT_URL = "/admin/users";
+	public static final String LABEL_MANAGERMENT_NAME = "指标维护";
+	public static final String LABEL_MANAGERMENT_URL = "/admin/labels";
+	
 }

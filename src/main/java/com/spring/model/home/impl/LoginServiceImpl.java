@@ -5,10 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.security.core.context.SecurityContextImpl;
 
 import com.spring.bo.system.Users;
-import com.spring.model.home.IHomeService;
+import com.spring.model.home.ILoginService;
 import com.trs.dev4.jdk16.dao.IAccessor;
 
-public class HomeServiceImpl implements IHomeService {
+public class LoginServiceImpl implements ILoginService {
 	
 	private IAccessor<Users> usersDao;
 	public void setUsersDao(IAccessor<Users> usersDao) {

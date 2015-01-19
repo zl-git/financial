@@ -50,7 +50,7 @@
 
 	<http auto-config="true">
 		<intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
-		<intercept-url pattern="/analytics/**" access="ROLE_OPERATE" />
+		<!-- <intercept-url pattern="/analytics/**" access="ROLE_OPERATE" /> -->
 		<form-login login-page="/login" default-target-url="/"
 			authentication-failure-url="/login?error=true" />
 		<logout invalidate-session="true" logout-success-url="/"
@@ -59,9 +59,6 @@
 	<authentication-manager>
 		<authentication-provider user-service-ref="userService" />
 	</authentication-manager>
-	<!-- <user-service id="userService"> <user name="testadmin1" password="testadmin1" 
-		authorities="ROLE_USER, ROLE_ADMIN" /> <user name="testuser1" password="testuser1" 
-		authorities="ROLE_USER" /> </user-service> -->
 	<jdbc-user-service id="userService" data-source-ref="dataSource"
 		users-by-username-query="select USERNAME, PASSWORD, true from USERS where USERNAME=?"
 		authorities-by-username-query="select USERNAME, ROLE from USERS where USERNAME=?" />

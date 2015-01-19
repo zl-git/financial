@@ -5,7 +5,7 @@
 			http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 			http://www.springframework.org/schema/util
 			http://www.springframework.org/schema/util/spring-util-3.1.xsd">
-	<bean id="homeService" class="com.spring.model.home.impl.HomeServiceImpl">
+	<bean id="loginService" class="com.spring.model.home.impl.LoginServiceImpl">
 		<property name="usersDao" ref="usersDao" />
 	</bean>
 	<bean id="usersService" class="com.spring.model.users.impl.UsersServiceImpl" init-method="initialize">
