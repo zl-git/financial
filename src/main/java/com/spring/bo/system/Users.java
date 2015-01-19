@@ -4,39 +4,44 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * 用户主表
+ * @author wangmin
+ *
+ */
 @Entity
-@Table(name="`USERS`")
-public class Users implements Serializable{
+@Table(name = "`USERS`")
+public class Users implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4940056886281847878L;
-	
+
 	@Id
 	@Column(name = "`ID`")
-	private String id;
-	
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+
 	@Column(name = "`USERNAME`")
 	private String userName;
-	
+
 	@Column(name = "`PASSWORD`")
 	private String passWord;
-	
+
 	@Column(name = "`ROLE`")
 	private String role;
-	
-	@Column(name = "`DEFAULTPATH`")
-	private String defaultPath;
-	
-	public String getId() {
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
@@ -64,24 +69,15 @@ public class Users implements Serializable{
 		this.role = role;
 	}
 
-	public String getDefaultPath() {
-		return defaultPath;
-	}
-
-	public void setDefaultPath(String defaultPath) {
-		this.defaultPath = defaultPath;
-	}
-
-	public Users(String id, String userName, String passWord, String role,
-			String defaultPath) {
+	public Users(int id, String userName, String passWord, String role) {
 		super();
 		this.id = id;
 		this.userName = userName;
 		this.passWord = passWord;
 		this.role = role;
-		this.defaultPath = defaultPath;
 	}
+
 	public Users() {
-		
+
 	}
 }
