@@ -47,9 +47,9 @@ body {
 	</ul>
 	</nav>
 	<decorator:body />
-    <script
+   <%--  <script
 		src="<%=request.getContextPath()%>/assets/js/jquery-1.11.1.min.js"
-		type="text/javascript"></script>
+		type="text/javascript"></script> --%>
 	<script src="<%=request.getContextPath()%>/assets/js/bootstrap.min.js"
 		type="text/javascript"></script>
 	<script src="<%=request.getContextPath()%>/assets/js/base.js"

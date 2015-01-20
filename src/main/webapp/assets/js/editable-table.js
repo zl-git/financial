@@ -40,7 +40,14 @@ var EditableTable = function () {
 			        url: "users/update",
 			      	data : "oldUsername="+oldUsername+ "&username="+jqInputs[0].value+ "&password="+jqInputs[1].value,
 			      	dataType : "text",
+			      	success: function(data){		
+						if(data=="true"){
+							alert("用户名已存在");
+							location = "users";
+						}
+					}
 			   });
+               
             }
 
             function cancelEditRow(oTable, nRow) {

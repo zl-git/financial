@@ -36,9 +36,14 @@ public class AdminController {
 		return "admin/users";
 	}
 */
+	@ResponseBody
 	@RequestMapping(value = "/users/update")
 	public String updateUser(String oldUsername, String username,
 			String password) {
+		Users isExsit = usersService.findUserByUsername(username);
+		if(isExsit!=null){
+			return "true";
+		}
 		if ("".equals(oldUsername)) {
 			Users user = new Users();
 			user.setUserName(username);
@@ -50,8 +55,9 @@ public class AdminController {
 			user.setUserName(username);
 			user.setPassWord(password);
 			usersService.updateUser(user);
+			
 		}
-		return "admin/users";
+		return "false";
 	}
 	@RequestMapping(value = "/users/del")
 	public String updateUser(String userName) {
