@@ -23,6 +23,7 @@ public class UsersServiceImpl implements IUsersService {
 		usersDao.insert(user);
 	}
 
+	
 	@Override
 	public List<Users> listAllObjects() {
 		return usersDao.listObjects();
@@ -43,4 +44,14 @@ public class UsersServiceImpl implements IUsersService {
 			addNew(user);
 		}
 	}
+
+	@Override
+	public void updateUser(Users user) {
+		usersDao.update(user);
+	}
+	
+	public Users findUserByUsername(String userName){
+		return usersDao.findFirst("username",userName);
+	}
+	
 }

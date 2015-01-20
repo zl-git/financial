@@ -15,3 +15,6 @@ $(".clicksuccess").click(function(){
 	$(this).attr("disabled","disabled");
 	$(this).text("已完成");
 	});
+$(".search").click(function(){
+	$(".searched").css("display","block");
+	});

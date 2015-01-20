@@ -11,4 +11,5 @@
 	<bean id="usersService" class="com.spring.model.users.impl.UsersServiceImpl" init-method="initialize">
 		<property name="usersDao" ref="usersDao" />
 	</bean>
+	
 </beans>	

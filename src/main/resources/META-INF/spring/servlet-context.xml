@@ -35,5 +35,6 @@
 	<bean id="homeController" class="com.spring.ui.controller.HomeController">
 	</bean>
 	<bean id="adminController" class="com.spring.ui.controller.AdminController">
+	   <property name="usersService" ref="usersService"></property>
 	</bean>
 </beans>

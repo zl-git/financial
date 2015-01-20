@@ -8,4 +8,6 @@ public interface IUsersService {
 	public void addNew(Users user);
 	public List<Users> listAllObjects();
 	public void deleteUserByName(String userName);
+	public void updateUser(Users user);
+	public Users findUserByUsername(String userName);
 }
