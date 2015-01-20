@@ -10,7 +10,7 @@
 <body>
 	<div class="wrapper wrapper-style1 wrapper-first">
 		<div>
-			<a href="add.html" class="btn btn-warning add">案件录入</a>
+			<a href="<%=request.getContextPath()%>/home/add" class="btn btn-warning add">案件录入</a>
 		</div>
 		<div class="txthead">最新导入案件列表</div>
 		<div class="main">
@@ -22,11 +22,12 @@
 						<th>集资单位名称（个人姓名）</th>
 						<th>所属行业</th>
 						<th>发案时间</th>
-						<th>查看&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除</th>
+						<th>操作</th>
 						<th>最新情况</th>
 					</tr>
 				</thead>
 				<tbody>
+					<!-- 
 					<tr>
 						<td>1</td>
 						<td>Column content</td>
@@ -38,7 +39,8 @@
 							href="#" class="btn btn-success delete">删除</a></td>
 						<td><a href="newest.html" class="btn btn-default">最新情况</a></td>
 					</tr>
-
+					 -->
+					 
 				</tbody>
 			</table>
 		</div>
