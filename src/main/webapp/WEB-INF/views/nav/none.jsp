@@ -6,7 +6,8 @@
 	prefix="decorator"%>
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
 <html lang="zh-cn">
 <head>
 <meta charset="utf-8">
@@ -20,15 +21,11 @@
 	rel="stylesheet" type="text/css">
 <link href="<%=request.getContextPath()%>/assets/css/base.css"
 	rel="stylesheet" type="text/css">
-<style>
-body {
-	background: #fff;
-}
-</style>
 <decorator:head />
 </head>
 <body>
-	<nav id="nav">
+	<nav id="nav"> <a href="<%=request.getContextPath()%>/home/index"
+		class="logo">非法集资案件<span>信息管理系统</span></a>
 	<ul>
 		<li><a href="<%=request.getContextPath()%>/home/index">首页</a></li>
 		<li><a href="<%=request.getContextPath()%>/home/search">案件搜索</a></li>
@@ -37,17 +34,29 @@ body {
 			<li><a href="<%=request.getContextPath()%>/admin/users">用户管理</a></li>
 		</security:authorize>
 		<security:authorize url="/admin/labels">
-			<li><a href="<%=request.getContextPath()%>/admin/labels">标签管理</a></li>
+			<li><a href="<%=request.getContextPath()%>/admin/labels">指标维护</a></li>
 		</security:authorize>
-		<li><a
-			href="<%=request.getContextPath()%>/j_spring_security_logout"> 退出
-		</a></li>
 	</ul>
-	</ul>
+	<div class="top-nav ">
+		<div class="nav pull-right top-menu notify-label">
+			<div class="dropdown">
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#"> <span
+					class="username">admin</span> <b class="caret"></b>
+				</a>
+				<div class="dropdown-menu extended logout">
+					<div class="log-arrow-up"></div>
+					<div class="last-out">
+						<a href="<%=request.getContextPath()%>/j_spring_security_logout"><i
+							class="icon-key"></i> 退出登录</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	</nav>
 	<decorator:body />
-	<script
-		src="<%=request.getContextPath()%>/assets/js/jquery-1.11.1.min.js"
+   <script
+		src="<%=request.getContextPath()%>/assets/js/jquery-1.10.2.min.js"
 		type="text/javascript"></script>
 	<script src="<%=request.getContextPath()%>/assets/js/bootstrap.min.js"
 		type="text/javascript"></script>

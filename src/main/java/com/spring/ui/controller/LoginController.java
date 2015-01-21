@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.spring.model.home.ILoginService;
+import com.spring.model.login.ILoginService;
 
 @Controller
 public class LoginController {

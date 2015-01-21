@@ -2,6 +2,7 @@
 <decorators defaultdir="/WEB-INF/views/nav">
   	<excludes>
   		<pattern>/login*</pattern>
+  		<pattern>/admin/users*</pattern>
   	</excludes>
   	
     <decorator name="none" page="none.jsp">

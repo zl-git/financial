@@ -1,88 +1,210 @@
 package com.spring.bo.system;
 
-import java.sql.Date;
+import java.io.Serializable;
+import java.sql.Timestamp;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * 案件实体类
  * @author TRS
  *
  */
-public class Case {
+@Entity
+@Table(name = "`CASES`")
+public class Case implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2689469070771947834L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	private String projectName;// 项目名称
-	private String dname;// 单位名称
-	private Industry industry;// 所属行业
-	private RaiseType raiseType;// 集资方式
-	private ServiceType serviceType;// 业务类别
-	private double raiseAmount;// 集资金额
-	private int pnum;// 参与人数
-	private String area; // 设计地区
-	private Date incidenceTime;// 发案时间
-	private String regArea;// 注册地
-	private String CaseArea;// 案发地
-	private Channel channel;// 发现渠道
-	private CaseGrade caseGrade;// 案件级别
-	private String chargeName;// 负责人
-	private String informant;// 填报人
-	private String chargePhoNo;// 负责人电话
-	private Date formDate;// 填报日期
 	
-	private int administrative;//是否行政受理
-	private Date atime;//行政受理时间
-	private int adeal;//行政处理
-	private int toPolice;//是否移送公安
-	private int illegalRaise;//是否非法集资
+	/**
+	 * 集资项目名称
+	 */
+	private String caseName;
+	/**
+	 * 单位（个人）名称
+	 */
+	private String orgName;
+	/**
+	 * 所属行业
+	 */
+	private String industry;
+	/**
+	 * 集资方式
+	 */
+	private String raiseType;
+	/**
+	 * 业务类别
+	 */
+	private String serviceType;
+	/**
+	 * 业务明细
+	 */
+	private String serviceDetial;
+	/**
+	 * 集资金额
+	 */
+	private double raiseAmount;
+	/**
+	 * 参与人数
+	 */
+	private int raiseNum;
+	/**
+	 * 涉及地区
+	 */
+	private String involveArea; 
+	/**
+	 * 发案时间
+	 */
+	private Timestamp caseTime;
+	/**
+	 * 注册地
+	 */
+	private String registerArea;
+	/**
+	 * 案发地
+	 */
+	private String caseArea;
+	/**
+	 * 发现渠道
+	 */
+	private String channel;
+	/**
+	 * 案件级别
+	 */
+	private String caseGrade;
+	/**
+	 * 负责人
+	 */
+	private String chargeName;
+	/**
+	 * 填报人
+	 */
+	private String informant;
+	/**
+	 * 负责人电话
+	 */
+	private String contactNum;
+	/**
+	 * 填报日期
+	 */
+	private Timestamp formDate;
 	
-	private int pAccept;//公安受理
-	private int pRegister; //公安立案
-	private String crimeName;//立案罪名
-	private int investigation;//是否侦查
-	private int prosecute;//起诉
-	private String result;//审判结果
-	private String finalCrimeName;//认定罪名
-	private int crimeNum;//获刑人数
 	
-	private int judicial;//司法审结
-	private Date judicialDate;//司法审结时间
-	private int amountReturn;//集资款清退完毕
-	private Date returnTime;//清退完毕时间
+	/**
+	 * 是否行政受理
+	 */
+	private boolean adminReceive;
+	/**
+	 * 是否行政处理
+	 */
+	private boolean adminHandle;
+	/**
+	 * 是否移送公安
+	 */
+	private boolean movePolice;
+	/**
+	 * 是否非法集资
+	 */
+	private boolean illegalRaise;
 	
-	private double rePercent;//返还比例
-	private String event;//上访维稳事件
-	public int getId() {
-		return id;
+	
+	/**
+	 * 是否公安受理
+	 */
+	private boolean policeReceive;
+	/**
+	 * 公安立案
+	 */
+	private boolean policeRegister;
+	/**
+	 * 立案罪名
+	 */
+	private String crimeName;
+	/**
+	 * 是否侦查
+	 */
+	private boolean investigation;
+	/**
+	 * 是否起诉
+	 */
+	private boolean prosecute;
+	/**
+	 * 审判结果
+	 */
+	private String judgeResult;
+	/**
+	 * 认定罪名
+	 */
+	private String finalCrimeName;
+	/**
+	 * 获刑人数
+	 */
+	private int crimeNum;
+	
+	
+	/**
+	 * 是否司法审结
+	 */
+	private boolean judicial;
+	/**
+	 * 是否集资款清退完毕
+	 */
+	private boolean amountReturn;
+	
+	/**
+	 * 返还比例
+	 */
+	private double rePercent;
+	/**
+	 * 上访维稳事件
+	 */
+	private String policeEvent;
+	
+	public String getCaseName() {
+		return caseName;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCaseName(String caseName) {
+		this.caseName = caseName;
 	}
-	public String getProjectName() {
-		return projectName;
+	public String getOrgName() {
+		return orgName;
 	}
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
+	public void setOrgName(String orgName) {
+		this.orgName = orgName;
 	}
-	public String getDname() {
-		return dname;
-	}
-	public void setDname(String dname) {
-		this.dname = dname;
-	}
-	public Industry getIndustry() {
+	public String getIndustry() {
 		return industry;
 	}
-	public void setIndustry(Industry industry) {
+	public void setIndustry(String industry) {
 		this.industry = industry;
 	}
-	public RaiseType getRaiseType() {
+	public String getRaiseType() {
 		return raiseType;
 	}
-	public void setRaiseType(RaiseType raiseType) {
+	public void setRaiseType(String raiseType) {
 		this.raiseType = raiseType;
 	}
-	public ServiceType getServiceType() {
+	public String getServiceType() {
 		return serviceType;
 	}
-	public void setServiceType(ServiceType serviceType) {
+	public void setServiceType(String serviceType) {
 		this.serviceType = serviceType;
+	}
+	public String getServiceDetial() {
+		return serviceDetial;
+	}
+	public void setServiceDetial(String serviceDetial) {
+		this.serviceDetial = serviceDetial;
 	}
 	public double getRaiseAmount() {
 		return raiseAmount;
@@ -90,46 +212,46 @@ public class Case {
 	public void setRaiseAmount(double raiseAmount) {
 		this.raiseAmount = raiseAmount;
 	}
-	public int getPnum() {
-		return pnum;
+	public int getRaiseNum() {
+		return raiseNum;
 	}
-	public void setPnum(int pnum) {
-		this.pnum = pnum;
+	public void setRaiseNum(int raiseNum) {
+		this.raiseNum = raiseNum;
 	}
-	public String getArea() {
-		return area;
+	public String getInvolveArea() {
+		return involveArea;
 	}
-	public void setArea(String area) {
-		this.area = area;
+	public void setInvolveArea(String involveArea) {
+		this.involveArea = involveArea;
 	}
-	public Date getIncidenceTime() {
-		return incidenceTime;
+	public Timestamp getCaseTime() {
+		return caseTime;
 	}
-	public void setIncidenceTime(Date incidenceTime) {
-		this.incidenceTime = incidenceTime;
+	public void setCaseTime(Timestamp caseTime) {
+		this.caseTime = caseTime;
 	}
-	public String getRegArea() {
-		return regArea;
+	public String getRegisterArea() {
+		return registerArea;
 	}
-	public void setRegArea(String regArea) {
-		this.regArea = regArea;
+	public void setRegisterArea(String registerArea) {
+		this.registerArea = registerArea;
 	}
 	public String getCaseArea() {
-		return CaseArea;
+		return caseArea;
 	}
 	public void setCaseArea(String caseArea) {
-		CaseArea = caseArea;
+		this.caseArea = caseArea;
 	}
-	public Channel getChannel() {
+	public String getChannel() {
 		return channel;
 	}
-	public void setChannel(Channel channel) {
+	public void setChannel(String channel) {
 		this.channel = channel;
 	}
-	public CaseGrade getCaseGrade() {
+	public String getCaseGrade() {
 		return caseGrade;
 	}
-	public void setCaseGrade(CaseGrade caseGrade) {
+	public void setCaseGrade(String caseGrade) {
 		this.caseGrade = caseGrade;
 	}
 	public String getChargeName() {
@@ -144,59 +266,53 @@ public class Case {
 	public void setInformant(String informant) {
 		this.informant = informant;
 	}
-	public String getChargePhoNo() {
-		return chargePhoNo;
+	public String getContactNum() {
+		return contactNum;
 	}
-	public void setChargePhoNo(String chargePhoNo) {
-		this.chargePhoNo = chargePhoNo;
+	public void setContactNum(String contactNum) {
+		this.contactNum = contactNum;
 	}
-	public Date getFormDate() {
+	public Timestamp getFormDate() {
 		return formDate;
 	}
-	public void setFormDate(Date formDate) {
+	public void setFormDate(Timestamp formDate) {
 		this.formDate = formDate;
 	}
-	public int getAdministrative() {
-		return administrative;
+	public boolean getAdminReceive() {
+		return adminReceive;
 	}
-	public void setAdministrative(int administrative) {
-		this.administrative = administrative;
+	public void setAdminReceive(boolean adminReceive) {
+		this.adminReceive = adminReceive;
 	}
-	public Date getAtime() {
-		return atime;
+	public boolean getAdminHandle() {
+		return adminHandle;
 	}
-	public void setAtime(Date atime) {
-		this.atime = atime;
+	public void setAdminHandle(boolean adminHandle) {
+		this.adminHandle = adminHandle;
 	}
-	public int getAdeal() {
-		return adeal;
+	public boolean getMovePolice() {
+		return movePolice;
 	}
-	public void setAdeal(int adeal) {
-		this.adeal = adeal;
+	public void setMovePolice(boolean movePolice) {
+		this.movePolice = movePolice;
 	}
-	public int getToPolice() {
-		return toPolice;
-	}
-	public void setToPolice(int toPolice) {
-		this.toPolice = toPolice;
-	}
-	public int getIllegalRaise() {
+	public boolean getIllegalRaise() {
 		return illegalRaise;
 	}
-	public void setIllegalRaise(int illegalRaise) {
+	public void setIllegalRaise(boolean illegalRaise) {
 		this.illegalRaise = illegalRaise;
 	}
-	public int getpAccept() {
-		return pAccept;
+	public boolean getPoliceReceive() {
+		return policeReceive;
 	}
-	public void setpAccept(int pAccept) {
-		this.pAccept = pAccept;
+	public void setPoliceReceive(boolean policeReceive) {
+		this.policeReceive = policeReceive;
 	}
-	public int getpRegister() {
-		return pRegister;
+	public boolean getPoliceRegister() {
+		return policeRegister;
 	}
-	public void setpRegister(int pRegister) {
-		this.pRegister = pRegister;
+	public void setPoliceRegister(boolean policeRegister) {
+		this.policeRegister = policeRegister;
 	}
 	public String getCrimeName() {
 		return crimeName;
@@ -204,23 +320,23 @@ public class Case {
 	public void setCrimeName(String crimeName) {
 		this.crimeName = crimeName;
 	}
-	public int getInvestigation() {
+	public boolean getInvestigation() {
 		return investigation;
 	}
-	public void setInvestigation(int investigation) {
+	public void setInvestigation(boolean investigation) {
 		this.investigation = investigation;
 	}
-	public int getProsecute() {
+	public boolean getProsecute() {
 		return prosecute;
 	}
-	public void setProsecute(int prosecute) {
+	public void setProsecute(boolean prosecute) {
 		this.prosecute = prosecute;
 	}
-	public String getResult() {
-		return result;
+	public String getJudgeResult() {
+		return judgeResult;
 	}
-	public void setResult(String result) {
-		this.result = result;
+	public void setJudgeResult(String judgeResult) {
+		this.judgeResult = judgeResult;
 	}
 	public String getFinalCrimeName() {
 		return finalCrimeName;
@@ -234,29 +350,17 @@ public class Case {
 	public void setCrimeNum(int crimeNum) {
 		this.crimeNum = crimeNum;
 	}
-	public int getJudicial() {
+	public boolean getJudicial() {
 		return judicial;
 	}
-	public void setJudicial(int judicial) {
+	public void setJudicial(boolean judicial) {
 		this.judicial = judicial;
 	}
-	public Date getJudicialDate() {
-		return judicialDate;
-	}
-	public void setJudicialDate(Date judicialDate) {
-		this.judicialDate = judicialDate;
-	}
-	public int getAmountReturn() {
+	public boolean getAmountReturn() {
 		return amountReturn;
 	}
-	public void setAmountReturn(int amountReturn) {
+	public void setAmountReturn(boolean amountReturn) {
 		this.amountReturn = amountReturn;
-	}
-	public Date getReturnTime() {
-		return returnTime;
-	}
-	public void setReturnTime(Date returnTime) {
-		this.returnTime = returnTime;
 	}
 	public double getRePercent() {
 		return rePercent;
@@ -264,10 +368,39 @@ public class Case {
 	public void setRePercent(double rePercent) {
 		this.rePercent = rePercent;
 	}
-	public String getEvent() {
-		return event;
+	public String getPoliceEvent() {
+		return policeEvent;
 	}
-	public void setEvent(String event) {
-		this.event = event;
+	public void setPoliceEvent(String policeEvent) {
+		this.policeEvent = policeEvent;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	@Override
+	public String toString() {
+		return "Case [id=" + id + ", caseName=" + caseName + ", orgName="
+				+ orgName + ", industry=" + industry + ", raiseType="
+				+ raiseType + ", serviceType=" + serviceType
+				+ ", serviceDetial=" + serviceDetial + ", raiseAmount="
+				+ raiseAmount + ", raiseNum=" + raiseNum + ", involveArea="
+				+ involveArea + ", caseTime=" + caseTime + ", registerArea="
+				+ registerArea + ", caseArea=" + caseArea + ", channel="
+				+ channel + ", caseGrade=" + caseGrade + ", chargeName="
+				+ chargeName + ", informant=" + informant + ", contactNum="
+				+ contactNum + ", formDate=" + formDate + ", adminReceive="
+				+ adminReceive + ", adminHandle=" + adminHandle
+				+ ", movePolice=" + movePolice + ", illegalRaise="
+				+ illegalRaise + ", policeReceive=" + policeReceive
+				+ ", policeRegister=" + policeRegister + ", crimeName="
+				+ crimeName + ", investigation=" + investigation
+				+ ", prosecute=" + prosecute + ", judgeResult=" + judgeResult
+				+ ", finalCrimeName=" + finalCrimeName + ", crimeNum="
+				+ crimeNum + ", judicial=" + judicial + ", amountReturn="
+				+ amountReturn + ", rePercent=" + rePercent + ", policeEvent="
+				+ policeEvent + "]";
 	}
 }

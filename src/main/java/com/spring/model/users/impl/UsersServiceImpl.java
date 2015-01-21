@@ -3,14 +3,14 @@ package com.spring.model.users.impl;
 import java.util.List;
 
 import com.spring.bo.system.Users;
+import com.spring.dao.UsersDao;
 import com.spring.model.users.IUsersService;
 import com.spring.util.Const;
-import com.trs.dev4.jdk16.dao.IAccessor;
 
 public class UsersServiceImpl implements IUsersService {
-	private IAccessor<Users> usersDao;
-
-	public void setUsersDao(IAccessor<Users> usersDao) {
+	
+	private UsersDao usersDao;
+	public void setUsersDao(UsersDao usersDao) {
 		this.usersDao = usersDao;
 	}
 
@@ -20,22 +20,22 @@ public class UsersServiceImpl implements IUsersService {
 
 	@Override
 	public void addNew(Users user) {
-		usersDao.insert(user);
+		usersDao.addNew(user);
 	}
 
+	
 	@Override
 	public List<Users> listAllObjects() {
-		return usersDao.listObjects();
+		return usersDao.listAllObjects();
 	}
 
 	@Override
 	public void deleteUserByName(String userName) {
-		Users user = usersDao.findFirst("username", userName);
-		usersDao.delete(user);
+		usersDao.deleteUserByName(userName);
 	}
 
 	private void createUser(String userName, String passWord, String role) {
-		if (usersDao.findFirst("username", userName) == null) {
+		if (usersDao.findFirst("username",userName) == null) {
 			Users user = new Users();
 			user.setUserName(userName);
 			user.setPassWord(passWord);
@@ -43,4 +43,14 @@ public class UsersServiceImpl implements IUsersService {
 			addNew(user);
 		}
 	}
+
+	@Override
+	public void updateUser(Users user) {
+		usersDao.update(user);
+	}
+	
+	public Users findUserByUsername(String userName){
+		return usersDao.findFirst("username",userName);
+	}
+	
 }

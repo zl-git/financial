@@ -1,17 +1,17 @@
-package com.spring.model.home.impl;
+package com.spring.model.login.impl;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.security.core.context.SecurityContextImpl;
 
 import com.spring.bo.system.Users;
-import com.spring.model.home.ILoginService;
-import com.trs.dev4.jdk16.dao.IAccessor;
+import com.spring.dao.UsersDao;
+import com.spring.model.login.ILoginService;
 
 public class LoginServiceImpl implements ILoginService {
 	
-	private IAccessor<Users> usersDao;
-	public void setUsersDao(IAccessor<Users> usersDao) {
+	private UsersDao usersDao;
+	public void setUsersDao(UsersDao usersDao) {
 		this.usersDao = usersDao;
 	}
 	
@@ -28,7 +28,7 @@ public class LoginServiceImpl implements ILoginService {
 
 	@Override
 	public String getUserRole(String userName) {
-		Users user = usersDao.findFirst("username", userName);
+		Users user = usersDao.findFirst("username",userName);
 		return user.getRole();
 	}
 

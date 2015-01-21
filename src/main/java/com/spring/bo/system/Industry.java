@@ -15,7 +15,6 @@ public class Industry {
 	private Set<Industry> industries;// 小类
 	private Industry parentIndustry;// 大类
 
-
 	/*public int getIndustryId() {
 		return industryId;
 	}
