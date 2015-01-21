@@ -33,6 +33,7 @@
 		<property name="loginService" ref="loginService" />
 	</bean>
 	<bean id="homeController" class="com.spring.ui.controller.HomeController">
+		<property name="homeService" ref="homeService" />
 	</bean>
 	<bean id="adminController" class="com.spring.ui.controller.AdminController">
 	   <property name="usersService" ref="usersService"></property>

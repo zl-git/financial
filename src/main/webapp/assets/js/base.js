@@ -18,3 +18,17 @@ $(".clicksuccess").click(function(){
 $(".search").click(function(){
 	$(".searched").css("display","block");
 	});
+	
+var co = document.getElementById('makeupCo');
+var cose = document.getElementById('makeupCoSe');
+co.value=cose.value;
+	function changeF()  
+	{  
+	   co.value=  cose.options[cose.selectedIndex].value; 
+	   if(cose.options[cose.selectedIndex].value=="其他"){
+		   co.disabled=false;
+		   co.focus();
+		   }else{
+			 co.disabled=true; 
+			   } 
+	}

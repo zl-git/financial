@@ -1,4 +1,4 @@
-package com.spring.model.home;
+package com.spring.model.login;
 
 import javax.servlet.http.HttpServletRequest;
 

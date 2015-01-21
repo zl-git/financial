@@ -48,9 +48,29 @@
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="usersDao" class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
-		<constructor-arg value="com.spring.bo.system.Users" />
-		<property name="sessionFactory" ref="sessionFactory" />
+	<bean id="usersDao" class="com.spring.dao.UsersDao">
+		<property name="usersAccessor">
+			<bean class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
+				<constructor-arg value="com.spring.bo.system.Users" />
+				<property name="sessionFactory" ref="sessionFactory" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="caseDao" class="com.spring.dao.CaseDao">
+		<property name="caseAccessor">
+			<bean class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
+				<constructor-arg value="com.spring.bo.system.Case" />
+				<property name="sessionFactory" ref="sessionFactory" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="caseConditionDao" class="com.spring.dao.CaseConditionDao">
+		<property name="caseConditionAccessor">
+			<bean class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
+				<constructor-arg value="com.spring.bo.system.CaseCondition" />
+				<property name="sessionFactory" ref="sessionFactory" />
+			</bean>
+		</property>
 	</bean>
 	<tx:annotation-driven />
 </beans>

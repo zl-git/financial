@@ -99,32 +99,33 @@ public class Case implements Serializable {
 	 */
 	private Timestamp formDate;
 	
+	
 	/**
 	 * 是否行政受理
 	 */
-	private boolean isAdminReceive;
+	private boolean adminReceive;
 	/**
 	 * 是否行政处理
 	 */
-	private boolean isAdminHandle;
+	private boolean adminHandle;
 	/**
 	 * 是否移送公安
 	 */
-	private boolean isMovePolice;
+	private boolean movePolice;
 	/**
 	 * 是否非法集资
 	 */
-	private boolean isIllegalRaise;
+	private boolean illegalRaise;
 	
 	
 	/**
 	 * 是否公安受理
 	 */
-	private boolean isPoliceReceive;
+	private boolean policeReceive;
 	/**
 	 * 公安立案
 	 */
-	private boolean isPoliceRegister;
+	private boolean policeRegister;
 	/**
 	 * 立案罪名
 	 */
@@ -132,11 +133,11 @@ public class Case implements Serializable {
 	/**
 	 * 是否侦查
 	 */
-	private boolean isInvestigation;
+	private boolean investigation;
 	/**
 	 * 是否起诉
 	 */
-	private int isProsecute;
+	private boolean prosecute;
 	/**
 	 * 审判结果
 	 */
@@ -154,11 +155,11 @@ public class Case implements Serializable {
 	/**
 	 * 是否司法审结
 	 */
-	private boolean isJudicial;
+	private boolean judicial;
 	/**
 	 * 是否集资款清退完毕
 	 */
-	private boolean isAmountReturn;
+	private boolean amountReturn;
 	
 	/**
 	 * 返还比例
@@ -169,13 +170,6 @@ public class Case implements Serializable {
 	 */
 	private String policeEvent;
 	
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getCaseName() {
 		return caseName;
 	}
@@ -284,41 +278,41 @@ public class Case implements Serializable {
 	public void setFormDate(Timestamp formDate) {
 		this.formDate = formDate;
 	}
-	public boolean isAdminReceive() {
-		return isAdminReceive;
+	public boolean getAdminReceive() {
+		return adminReceive;
 	}
-	public void setAdminReceive(boolean isAdminReceive) {
-		this.isAdminReceive = isAdminReceive;
+	public void setAdminReceive(boolean adminReceive) {
+		this.adminReceive = adminReceive;
 	}
-	public boolean isAdminHandle() {
-		return isAdminHandle;
+	public boolean getAdminHandle() {
+		return adminHandle;
 	}
-	public void setAdminHandle(boolean isAdminHandle) {
-		this.isAdminHandle = isAdminHandle;
+	public void setAdminHandle(boolean adminHandle) {
+		this.adminHandle = adminHandle;
 	}
-	public boolean isMovePolice() {
-		return isMovePolice;
+	public boolean getMovePolice() {
+		return movePolice;
 	}
-	public void setMovePolice(boolean isMovePolice) {
-		this.isMovePolice = isMovePolice;
+	public void setMovePolice(boolean movePolice) {
+		this.movePolice = movePolice;
 	}
-	public boolean isIllegalRaise() {
-		return isIllegalRaise;
+	public boolean getIllegalRaise() {
+		return illegalRaise;
 	}
-	public void setIllegalRaise(boolean isIllegalRaise) {
-		this.isIllegalRaise = isIllegalRaise;
+	public void setIllegalRaise(boolean illegalRaise) {
+		this.illegalRaise = illegalRaise;
 	}
-	public boolean isPoliceReceive() {
-		return isPoliceReceive;
+	public boolean getPoliceReceive() {
+		return policeReceive;
 	}
-	public void setPoliceReceive(boolean isPoliceReceive) {
-		this.isPoliceReceive = isPoliceReceive;
+	public void setPoliceReceive(boolean policeReceive) {
+		this.policeReceive = policeReceive;
 	}
-	public boolean isPoliceRegister() {
-		return isPoliceRegister;
+	public boolean getPoliceRegister() {
+		return policeRegister;
 	}
-	public void setPoliceRegister(boolean isPoliceRegister) {
-		this.isPoliceRegister = isPoliceRegister;
+	public void setPoliceRegister(boolean policeRegister) {
+		this.policeRegister = policeRegister;
 	}
 	public String getCrimeName() {
 		return crimeName;
@@ -326,17 +320,17 @@ public class Case implements Serializable {
 	public void setCrimeName(String crimeName) {
 		this.crimeName = crimeName;
 	}
-	public boolean isInvestigation() {
-		return isInvestigation;
+	public boolean getInvestigation() {
+		return investigation;
 	}
-	public void setInvestigation(boolean isInvestigation) {
-		this.isInvestigation = isInvestigation;
+	public void setInvestigation(boolean investigation) {
+		this.investigation = investigation;
 	}
-	public int getIsProsecute() {
-		return isProsecute;
+	public boolean getProsecute() {
+		return prosecute;
 	}
-	public void setIsProsecute(int isProsecute) {
-		this.isProsecute = isProsecute;
+	public void setProsecute(boolean prosecute) {
+		this.prosecute = prosecute;
 	}
 	public String getJudgeResult() {
 		return judgeResult;
@@ -356,17 +350,17 @@ public class Case implements Serializable {
 	public void setCrimeNum(int crimeNum) {
 		this.crimeNum = crimeNum;
 	}
-	public boolean isJudicial() {
-		return isJudicial;
+	public boolean getJudicial() {
+		return judicial;
 	}
-	public void setJudicial(boolean isJudicial) {
-		this.isJudicial = isJudicial;
+	public void setJudicial(boolean judicial) {
+		this.judicial = judicial;
 	}
-	public boolean isAmountReturn() {
-		return isAmountReturn;
+	public boolean getAmountReturn() {
+		return amountReturn;
 	}
-	public void setAmountReturn(boolean isAmountReturn) {
-		this.isAmountReturn = isAmountReturn;
+	public void setAmountReturn(boolean amountReturn) {
+		this.amountReturn = amountReturn;
 	}
 	public double getRePercent() {
 		return rePercent;
@@ -379,5 +373,34 @@ public class Case implements Serializable {
 	}
 	public void setPoliceEvent(String policeEvent) {
 		this.policeEvent = policeEvent;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	@Override
+	public String toString() {
+		return "Case [id=" + id + ", caseName=" + caseName + ", orgName="
+				+ orgName + ", industry=" + industry + ", raiseType="
+				+ raiseType + ", serviceType=" + serviceType
+				+ ", serviceDetial=" + serviceDetial + ", raiseAmount="
+				+ raiseAmount + ", raiseNum=" + raiseNum + ", involveArea="
+				+ involveArea + ", caseTime=" + caseTime + ", registerArea="
+				+ registerArea + ", caseArea=" + caseArea + ", channel="
+				+ channel + ", caseGrade=" + caseGrade + ", chargeName="
+				+ chargeName + ", informant=" + informant + ", contactNum="
+				+ contactNum + ", formDate=" + formDate + ", adminReceive="
+				+ adminReceive + ", adminHandle=" + adminHandle
+				+ ", movePolice=" + movePolice + ", illegalRaise="
+				+ illegalRaise + ", policeReceive=" + policeReceive
+				+ ", policeRegister=" + policeRegister + ", crimeName="
+				+ crimeName + ", investigation=" + investigation
+				+ ", prosecute=" + prosecute + ", judgeResult=" + judgeResult
+				+ ", finalCrimeName=" + finalCrimeName + ", crimeNum="
+				+ crimeNum + ", judicial=" + judicial + ", amountReturn="
+				+ amountReturn + ", rePercent=" + rePercent + ", policeEvent="
+				+ policeEvent + "]";
 	}
 }

@@ -401,7 +401,7 @@ form td ,.modal td{
 	background:#fff;
 	}
 .searched{
-    display:none;
+   
 	}
 .pane1-selected{
 	border-radius:4px;
@@ -446,3 +446,31 @@ form td ,.modal td{
 .adv-table .dataTables_info, .dataTables_paginate {
     padding: 15px;
 }
+
+
+.select-cose{
+	position:absolute;
+	border:1pt solid #c1c1c1;
+	overflow:hidden;
+	width:352px;
+    height:42px;
+	clip:rect(-1px 354px 354px 330px);
+	}
+#makeupCoSe{
+	width:354px;
+	height:43px;
+	margin:-2px;
+	}
+.select-co{
+	position:absolute;
+	border-top:1pt solid #c1c1c1;
+	border-left:1pt solid #c1c1c1;
+	border-bottom:1pt solid #c1c1c1;
+	width:330px;
+	height:42px;
+	}
+#makeupCo{
+	width:330px;
+	height:38px;
+	border:0pt;
+	}

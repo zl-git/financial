@@ -5,11 +5,14 @@
 			http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
 			http://www.springframework.org/schema/util
 			http://www.springframework.org/schema/util/spring-util-3.1.xsd">
-	<bean id="loginService" class="com.spring.model.home.impl.LoginServiceImpl">
+	<bean id="loginService" class="com.spring.model.login.impl.LoginServiceImpl">
 		<property name="usersDao" ref="usersDao" />
 	</bean>
 	<bean id="usersService" class="com.spring.model.users.impl.UsersServiceImpl" init-method="initialize">
 		<property name="usersDao" ref="usersDao" />
 	</bean>
-	
+	<bean id="homeService" class="com.spring.model.home.impl.HomeServiceImpl">
+		<property name="caseDao" ref="caseDao" />
+		<property name="caseConditionDao" ref="caseConditionDao" />
+	</bean>
 </beans>	

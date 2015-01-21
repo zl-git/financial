@@ -1,11 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="com.spring.util.Const"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="java.util.*"%>
+<%@ page import="com.spring.bo.system.Case"%>
+<% 
+	List<Case> listCases = (List<Case>)request.getAttribute("cases");
+%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Index</title>
+<style>
+body {
+	background: #fff;
+}
+</style>
 </head>
 <body>
 	<div class="wrapper wrapper-style1 wrapper-first">
@@ -27,20 +37,38 @@
 					</tr>
 				</thead>
 				<tbody>
-					<!-- 
-					<tr>
-						<td>1</td>
-						<td>Column content</td>
-						<td>Column content</td>
-						<td>Column content</td>
-						<td>Column content</td>
-						<td><a href="#" class="btn btn-default check">查看</a> <a
-							href="modify.html" class="btn btn-primary modify">修改</a> <a
-							href="#" class="btn btn-success delete">删除</a></td>
-						<td><a href="newest.html" class="btn btn-default">最新情况</a></td>
-					</tr>
-					 -->
-					 
+				<% if (listCases != null) {
+					for (int i = 0; i < listCases.size(); i++) {
+					
+				%>
+						<tr>
+							<td><%=i+1 %></td>
+							<td><%=listCases.get(i).getCaseName() %></td>
+							<td><%=listCases.get(i).getOrgName() %></td>
+							<td><%=listCases.get(i).getIndustry() %></td>
+							<td><%=listCases.get(i).getCaseTime() %></td>
+							<td>
+								<a href="#" class="btn btn-default check">查看</a> 
+								<a href="<%=request.getContextPath()%>/home/modify?id=<%=listCases.get(i).getId() %>" 
+									class="btn btn-primary modify">
+									修改
+								</a> 
+								<a href="<%=request.getContextPath()%>/home/delete?id=<%=listCases.get(i).getId() %>" 
+									class="btn btn-success delete">
+									删除
+								</a>
+							</td>
+							<td>
+								<a href="<%=request.getContextPath()%>/home/newest?caseId=<%=listCases.get(i).getId() %>"
+									target="_blank" class="btn btn-default">
+									最新情况
+								</a>
+							</td>
+						</tr>
+				<%		
+					}
+				}
+				%> 
 				</tbody>
 			</table>
 		</div>
@@ -49,7 +77,7 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="alert">×</button>
-						<h4 class="modal-title">Modal title</h4>
+						<!-- <h4 class="modal-title">Modal title</h4> -->
 					</div>
 					<div class="modal-body">
 						<p>
@@ -201,7 +229,6 @@
 								</section>
 							</div>
 							</article>
-
 						</p>
 					</div>
 				</div>

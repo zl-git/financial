@@ -11,7 +11,7 @@
 	<div class="wrapper wrapper-style1 wrapper-first">
 		<ul class="breadcrumb">
 			<li><a href="<%=request.getContextPath()%>/home/index">首页</a></li>
-			<li class="active">添加新案情</li>
+			<li class="active">修改案情</li>
 		</ul>
 		<article> <sf:form modelAttribute="case" method="post"
 			class="modifyForm">
