@@ -11,62 +11,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>newest</title>
+<title>conditionDetail</title>
 </head>
 <body>
 	<div class="wrapper wrapper-style1 wrapper-first">
 		<ul class="breadcrumb">
 			<li><a href="<%=request.getContextPath()%>/home/index">首页</a></li>
-			<li class="active">案情最新情况</li>
+			<li class="active">案情最新情况详情</li>
 		</ul>
 		<div class="row content">
 			<div class="col-lg-12">
 				<section class="panel">
-					<header class="panel-heading">
-						案件最新情况 <span class="tools pull-right"> <a
-							class="icon-chevron-down" href="javascript:;"></a> <a
-							class="icon-remove" href="javascript:;"></a>
-						</span>
-					</header>
 					<div class="panel-body">
-						<div class="timeline-messages">
-							<%
-								if (conditionList != null && conditionList.size() > 0) {
-									for (int i = 0; i < conditionList.size(); i++) {
-										CaseCondition caseCondititon = conditionList.get(i);
-							%>
-							<div class="msg-time-chat">
-								<a href="<%=request.getContextPath()%>/home/conditionDetail?id=<%=caseCondititon.getId()%>" 
-								   class="message-img">
-									<img class="avatar"
-										 src="<%=request.getContextPath()%>/assets/img/fl.jpg" 
-										 alt="">
-								</a>
-								<div class="message-body msg-in">
-									<span class="arrow"></span>
-									<div class="text">
-										<p class="attribution">
-											<a href="<%=request.getContextPath()%>/home/conditionDetail?id=<%=caseCondititon.getId()%>">
-												<%=caseCondititon.getFormDate()%>
-												&nbsp;&nbsp;
-												<%=caseCondititon.getInformant()%>
-												&nbsp;&nbsp;
-												<%=caseCondititon.getPhoneNum()%>
-											</a>
-										</p>
-										案情：&nbsp;<%=caseCondititon.getCaseCondition()%>
-									</div>
-								</div>
-							</div>
-							<%
-								}
-								}
-							%>
-						</div>
 						<div class="chat-form">
-							<sf:form modelAttribute="caseCondition" method="post"
+							<sf:form modelAttribute="caseCondition"
 								class="modifyForm">
 								<div class="input-cont ">
+									<fieldset disabled>
 									<table>
 										<tr>
 											<td width="23%"><p>案情</p></td>
@@ -164,11 +125,16 @@
 											</td>
 										</tr>
 									</table>
+									</fieldset>
 								</div>
 								<div class="form-group">
-									<div class="pull-right chat-features">
-										<input class="btn btn-success" type="submit" value="确定" />
-									</div>
+								<div class="pull-right chat-features">
+									<button type="button" class="btn btn-default"
+											style="margin-bottom: 0px;"
+											onclick="javascript:window.history.go(-1)">
+										返回
+									</button>
+								</div>
 								</div>
 							</sf:form>
 						</div>

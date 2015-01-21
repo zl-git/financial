@@ -68,4 +68,9 @@ public class HomeServiceImpl implements IHomeService{
 		caseConditionDao.addNew(caseCondition);
 	}
 
+	@Override
+	public CaseCondition getConditionById(int id) {
+		return caseConditionDao.findFirst("id", id);
+	}
+
 }

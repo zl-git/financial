@@ -20,4 +20,6 @@ public interface IHomeService {
 	List<CaseCondition> getConditionByCaseId(int caseId);
 
 	void addCaseCondition(CaseCondition caseCondition);
+	
+	CaseCondition getConditionById(int id);
 }

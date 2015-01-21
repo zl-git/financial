@@ -26,4 +26,8 @@ public class CaseConditionDao {
 	public void addNew(CaseCondition caseCondition) {
 		caseConditionAccessor.insert(caseCondition);
 	}
+	
+	public CaseCondition findFirst(String field, Object value) {
+		return caseConditionAccessor.findFirst(field, value);
+	}
 }

@@ -34,7 +34,20 @@ public class HomeController {
 		model.addAttribute("cases", homeService.listLatestCases(10));
 		return "home/index";
 	}
-
+	
+	/**
+	 * 查看
+	 * @param model
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/check")
+	public String check(Model model,
+			@RequestParam(value = "id") int id) {
+		model.addAttribute(homeService.get(id));
+		return "home/check";
+	}
+	
 	/**
 	 * 添加案件
 	 * 
@@ -115,6 +128,13 @@ public class HomeController {
 		caseCondition.setCaseId(caseId);
 		model.addAttribute(caseCondition);
 		return "/home/newest";
+	}
+	
+	@RequestMapping(value="conditionDetail")
+	public String conditionDetail(@RequestParam(value = "id") int id,
+			Model model) {
+		model.addAttribute(homeService.getConditionById(id));
+		return "/home/conditionDetail";
 	}
 	
 	@RequestMapping(value = "newest", method = RequestMethod.POST)
