@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+			http://www.springframework.org/schema/util
+			http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+	<bean id="loginService" class="com.trs.financial.model.login.impl.LoginServiceImpl">
+		<property name="usersDao" ref="usersDao" />
+	</bean>
+	<bean id="usersService" class="com.trs.financial.model.users.impl.UsersServiceImpl" init-method="initialize">
+		<property name="usersDao" ref="usersDao" />
+	</bean>
+	<bean id="homeService" class="com.trs.financial.model.home.impl.HomeServiceImpl">
+		<property name="caseDao" ref="caseDao" />
+		<property name="caseConditionDao" ref="caseConditionDao" />
+		<property name="outPutExcelDao" ref="outPutExcel" />
+		<property name="outPutClassExcelDao" ref="outPutExcel" />
+	</bean>
+	<bean id="industryService" class="com.trs.financial.model.service.impl.IndustryServiceImpl" init-method="initialize">
+	   <property name="industryDao" ref="industryDao"></property>
+	</bean>
+	<bean id="caseGradeService" class="com.trs.financial.model.service.impl.CaseGradeServiceImpl" init-method="initialize">
+	   <property name="caseGradeDao" ref="caseGradeDao"></property>
+	</bean>
+	
+	<bean id="channelService" class="com.trs.financial.model.service.impl.ChannelServiceImpl" init-method="initialize">
+	   <property name="channelDao" ref="channelDao"></property>
+	</bean>
+	
+	<bean id="raiseTypeService" class="com.trs.financial.model.service.impl.RaiseTypeServiceImpl" init-method="initialize">
+	   <property name="raiseTypeDao" ref="raiseTypeDao"></property>
+	</bean>
+	
+	<bean id="serviceTypeService" class="com.trs.financial.model.service.impl.ServiceTypeServiceImpl" init-method="initialize" >
+	   <property name="serviceTypeDao" ref="serviceTypeDao"></property>
+	</bean>
+	
+	<bean id="navigationInitFilter" class="com.trs.financial.model.filter.NavigationInitFilter">
+		<property name="loginService" ref="loginService" />
+	</bean>
+</beans>	

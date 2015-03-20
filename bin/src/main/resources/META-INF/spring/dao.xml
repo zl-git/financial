@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+			http://www.springframework.org/schema/data/jpa
+			http://www.springframework.org/schema/data/jpa/spring-jpa-1.2.xsd
+			http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/tx   
+            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${connection.driver_class}" />
+		<property name="jdbcUrl" value="${connection.url}" />
+		<property name="user" value="${connection.username}" />
+		<property name="password" value="${connection.password}" />
+		<property name="initialPoolSize" value="${c3p0.initial_pool_size}" />
+		<property name="minPoolSize" value="${c3p0.min_pool_size}" />
+		<property name="maxPoolSize" value="${c3p0.max_pool_size}" />
+		<property name="acquireIncrement" value="${c3p0.acquire_increment}" />
+		<property name="maxStatements" value="${c3p0.max_statements}" />
+		<property name="idleConnectionTestPeriod" value="${c3p0.idle_connection_test_period}" />
+	</bean>
+
+	<!-- using hibernate Annotation opertate database -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.trs.financial.bo</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.bytecode.use_reflection_optimizer">true</prop>
+				<prop key="cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="usersDao" class="com.trs.financial.dao.UsersDao">
+		<property name="usersAccessor">
+			<bean class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
+				<constructor-arg value="com.trs.financial.bo.Users" />
+				<property name="sessionFactory" ref="sessionFactory" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="caseDao" class="com.trs.financial.dao.CaseDao">
+		<property name="caseAccessor">
+			<bean class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
+				<constructor-arg value="com.trs.financial.bo.Case" />
+				<property name="sessionFactory" ref="sessionFactory" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="caseConditionDao" class="com.trs.financial.dao.CaseConditionDao">
+		<property name="caseConditionAccessor">
+			<bean class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
+				<constructor-arg value="com.trs.financial.bo.CaseCondition" />
+				<property name="sessionFactory" ref="sessionFactory" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="industryDao" class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
+	<constructor-arg value="com.trs.financial.bo.Industry" />
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="caseGradeDao" class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
+	   <constructor-arg value="com.trs.financial.bo.CaseGrade" />
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="channelDao" class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
+	   <constructor-arg value="com.trs.financial.bo.Channel" />
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="serviceTypeDao" class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
+	   <constructor-arg value="com.trs.financial.bo.ServiceType" />
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="raiseTypeDao" class="com.trs.dev4.jdk16.dao.hb3.GenericBaseDAO">
+	   <constructor-arg value="com.trs.financial.bo.RaiseType" />
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="outPutExcel" class="com.trs.financial.util.OutPutExcelDao">
+	    <property name="serviceTypeDao" ref="serviceTypeDao" />
+	</bean>
+	<tx:annotation-driven />
+</beans>
